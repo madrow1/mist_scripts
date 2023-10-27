@@ -13,14 +13,23 @@ def get_api(file):
 def check_site_exists(configs):
     site_name = configs['site']['name']
 
+    site_names = []
+
     existing_site_details = get_api('api.json')
     response = requests.get(existing_site_details[0], headers=existing_site_details[1])
 
-    for i in range(len(response.json())):
-        if site_name in response.json()[i]['name']:
-            return True
-        else:
-            return False 
+    if len(site_names) != 0:
+        if site_name in site_names:
+            return True        
+    else: 
+        for i in range(len(response.json())):
+            site_names.append(response.json()[i]['name'])
+
+    if site_name in site_names:
+        return True                    
+    else:
+        return False 
+                    
         
 def create_new_site(configs):
     apos_site = {}

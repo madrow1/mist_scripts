@@ -10,8 +10,6 @@ def main():
     args = parser.parse_args()
     configs = json.load(args.config)
 
-    print(configs)
-
     if api.check_site_exists(configs) == False:
         new_site_id = api.create_new_site(configs)
         print("New site {} created".format(configs['site']['name']))
