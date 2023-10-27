@@ -2,7 +2,7 @@ import json
 import time
 import argparse
 import requests
-
+import api
 
 def create_new_site(configs):
     apos_site = {}
@@ -13,11 +13,11 @@ def create_new_site(configs):
     apos_site['address'] = configs['site']['address']
 
     data_post = json.dumps(apos_site)
-    api_url = '{0}orgs/{1}/sites'.format(configs['api']['mist_url'],configs['api']['org_id'])
-    headers = {'Content-Type': 'application/json',
-               'Authorization': 'Token {}'.format(configs['api']['token'])}
+    api_response = api.get_api('config.json')
     
-    response = requests.post(api_url, data=data_post, headers=headers)
+    response = requests.post(api_response[0], data=data_post, headers=api_response[1])
+    print(response)
+    
     new_site = json.loads(response.content.decode('utf-8'))
 
     if response.status_code == 200:

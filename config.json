@@ -4,9 +4,9 @@
         "token": "Fh16YG6sF9RsIFoxuO9Dqi40EeIHRJi3p3iNqNnrC3QRgOPM7xtvDwfMto9CwUZxEgRBzADrOfaxTVAKX7tZ0gB8Vhx3Mi32",
         "mist_url": "https://api.eu.mist.com/api/v1/"
     },
-    
+
     "site": {
-        "name": "Rowans API Test 2",
+        "name": "Rowans API Test",
         "timezone": "Europe/London",
         "country_code": "GB",
         "lat": "50.8229", 
