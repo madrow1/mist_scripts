@@ -2,28 +2,21 @@ import api
 import requests
 import json 
 import argparse
-
-def read_json_site_list(file):
-    f = open(file)
-    sites = json.load(f)
-    return sites
+import time
 
 def main():
-    sites = read_json_site_list('config.json')
+    responses = []
+    sites = api.read_json_site_list('config.json')
     for i in range(len(sites)):
         if i == 0:
-            print(sites['site'])
+            start_time = time.time()
+            api.create_new_multi_site(sites['site'])
+            print("--- %s seconds ---" % (time.time() - start_time))
         else:
-            print(sites['site{}'.format(i)])
-
-
-#    if api.check_site_exists(configs) == False:
-#        new_site_id = api.create_new_site(configs)
-#        print("New site {} created".format(configs['site']['name']))
-#    else:
-#        print("This site already exists")
-#    return quit
-
+            start_time = time.time()
+            api.create_new_multi_site(sites['site{}'.format(i)])
+            print("--- %s seconds ---" % (time.time() - start_time))
+   
 
 if __name__ == "__main__":
     main()

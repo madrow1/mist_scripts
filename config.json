@@ -22,29 +22,5 @@
         "lat": "50.8229", 
         "lng": "-0.1363",
         "address": "166 Thorndean Road"
-    },
-    "site3": {
-        "name": "Rowans API Test3",
-        "timezone": "Europe/London",
-        "country_code": "GB",
-        "lat": "50.8229", 
-        "lng": "-0.1363",
-        "address": "166 Thorndean Road"
-    },
-    "site4": {
-        "name": "Rowans API Test4",
-        "timezone": "Europe/London",
-        "country_code": "GB",
-        "lat": "50.8229", 
-        "lng": "-0.1363",
-        "address": "166 Thorndean Road"
-    },
-    "site5": {
-        "name": "Rowans API Test5",
-        "timezone": "Europe/London",
-        "country_code": "GB",
-        "lat": "50.8229", 
-        "lng": "-0.1363",
-        "address": "166 Thorndean Road"
     }
 }

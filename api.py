@@ -2,6 +2,11 @@ import json
 import argparse
 import requests
 
+def read_json_site_list(file):
+    f = open(file)
+    json_file = json.load(f)
+    return json_file
+
 def get_api(file):
     f = open(file)
     configs = json.load(f)
@@ -45,6 +50,25 @@ def create_new_site(configs):
 
     response = requests.post(api_response[0], data=data_post, headers=api_response[1])
     new_site = json.loads(response.content.decode('utf-8'))
+
+def create_new_multi_site(configs):
+    apos_site = {}
+    apos_site['name'] = configs['name']
+    apos_site['timezone'] = configs['timezone']
+    apos_site['country_code'] = configs['country_code']
+    apos_site['latlng'] = {'lat': configs['lat'], 'lng': configs['lng']}
+    apos_site['address'] = configs['address']
+
+    data_post = json.dumps(apos_site)
+    api_response = get_api('api.json')
+    
+    response = requests.post(api_response[0], data=data_post, headers=api_response[1])
+    new_site = json.loads(response.content.decode('utf-8'))
+
+    if response.status_code == "200":
+        print("Site {} created sucessfully".format(apos_site['name']))
+    else:
+        print("Site {} creation failed".format(apos_site['name']))
 
 
 if __name__ == "__main__":
