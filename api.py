@@ -10,5 +10,7 @@ def get_api(file):
                'Authorization': 'Token {}'.format(configs['api']['token'])}
     return api_url,headers
 
+
 if __name__ == "__main__":
     get_api()
+
