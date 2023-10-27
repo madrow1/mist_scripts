@@ -13,11 +13,11 @@ def create_new_site(configs):
     apos_site['address'] = configs['site']['address']
 
     data_post = json.dumps(apos_site)
-    api_response = api.get_api('config.json')
+    api_response = api.get_api('api.json')
     
     response = requests.post(api_response[0], data=data_post, headers=api_response[1])
     print(response)
-    
+
     new_site = json.loads(response.content.decode('utf-8'))
 
     if response.status_code == 200:
