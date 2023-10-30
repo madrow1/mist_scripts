@@ -1,0 +1,10 @@
+{
+    "site": {
+        "name": "Rowans API Test",
+        "timezone": "Europe/London",
+        "country_code": "GB",
+        "lat": "", 
+        "lng": "",
+        "address": ""
+    }
+}
