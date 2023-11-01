@@ -5,7 +5,6 @@ import argparse
 import time
 
 def main():
-    responses = []
     sites = api.read_json_site_list('config.json')
     for i in range(len(sites)):
         if i == 0:
