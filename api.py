@@ -15,6 +15,16 @@ def get_api(file):
                'Authorization': 'Token {}'.format(configs['api']['token'])}
     return api_url,headers
 
+
+def chat(file,post_request):
+    f = open(file)
+    configs = json.load(f)
+    api_url = '{0}labs/orgs/{1}/chatbot_converse'.format(configs['api']['mist_url'],configs['api']['org_id'])
+    headers = {'Content-Type': 'application/json',
+               'Authorization': 'Token {}'.format(configs['api']['token']),
+               'data': post_request}
+    return api_url,headers
+
 def check_site_exists(configs):
     site_name = configs['site']['name']
 
