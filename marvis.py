@@ -1,4 +1,3 @@
-#https://api.eu.mist.com/api/v1/labs/orgs/e6a9f8e5-71d4-45b2-8c2c-6c508f6fad4a/chatbot_converse
 import requests
 import api
 import json

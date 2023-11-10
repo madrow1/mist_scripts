@@ -1,15 +1,21 @@
+# /api/v1/sites/3d59c02c-b7a6-4485-9f3a-f57d2a8e35fe/insights/site/3d59c02c-b7a6-4485-9f3a-f57d2a8e35fe/stats?end=1698400618&interval=600&start=1698361200&metrics=top-wlan-by-num_client,top-wlan-by-bytes,top-app-by-num_client,top-app-by-bytes
+
 import json
 import argparse
 import requests
 
+# Pretty self explanatory, takes one input "file" and opens it, then loads it into json_file and sends it back to the requestor 
 def read_json_site_list(file):
     f = open(file)
     json_file = json.load(f)
     return json_file
 
+# Opens the API file and reads in "api.json" (or whatever file you specify)
 def get_api(file):
     f = open(file)
     configs = json.load(f)
+    # API URL is loaded fron the json file, format is used so that any mist org can be loaded. ['api'] is the key and ['x'] is the value of that key.
+    # configs['api']['org_id'] is therefore the key "api" and the value is "org_id"
     api_url = '{0}orgs/{1}/sites'.format(configs['api']['mist_url'],configs['api']['org_id'])
     headers = {'Content-Type': 'application/json',
                'Authorization': 'Token {}'.format(configs['api']['token'])}
